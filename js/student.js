@@ -37,7 +37,7 @@ function renderStudents(arr, list){
         <td>
         <div class="flex gap-[15px] items-center">
         <button onclick="moreClick(${item.id})"><img src="./images/more.svg"></button>
-        <button><img src="./images/update.svg"></button>
+        <button onclick="updateBtnClick(${item.id})"><img src="./images/update.svg"></button>
         <button onclick="delateStudent(${item.id})"><img src="./images/delate.svg"></button>
         </div>
         </td>
@@ -65,8 +65,13 @@ function delateStudent(id){
     renderStudents(StudentsArr, RenderStudents)
     window.localStorage.setItem("studentsList", JSON.stringify(StudentsArr))
 }
+function updateBtnClick(id){
+    window.localStorage.setItem("updateId", JSON.stringify(id))
+    location.pathname = "./update.html"
+}
 
 function moreClick(id){
      window.localStorage.setItem("moreId", JSON.stringify(id))
      location.pathname = "./more.html"
 }
+
